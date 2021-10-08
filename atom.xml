@@ -6,7 +6,7 @@
   <link href="https://minangong.github.io/atom.xml" rel="self"/>
   
   <link href="https://minangong.github.io/"/>
-  <updated>2021-10-08T01:29:59.327Z</updated>
+  <updated>2021-10-08T01:33:01.400Z</updated>
   <id>https://minangong.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://minangong.github.io/2021/10/08/flink/"/>
     <id>https://minangong.github.io/2021/10/08/flink/</id>
     <published>2021-10-07T16:00:00.000Z</published>
-    <updated>2021-10-08T01:29:59.327Z</updated>
+    <updated>2021-10-08T01:33:01.400Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Flink简介"><a href="#Flink简介" class="headerlink" title="Flink简介"></a>Flink简介</h1><p>Apache Flink 是一个框架和分布式处理引擎，用于对无界和有界<strong>数据流</strong>进行<strong>有状态</strong>计算。</p>]]></content>
     
