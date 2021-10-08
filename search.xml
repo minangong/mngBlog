@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Flink使用笔记</title>
+      <link href="/2021/10/08/flink/"/>
+      <url>/2021/10/08/flink/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Flink简介"><a href="#Flink简介" class="headerlink" title="Flink简介"></a>Flink简介</h1><p>Apache Flink 是一个框架和分布式处理引擎，用于对无界和有界<strong>数据流</strong>进行<strong>有状态</strong>计算。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+          <category> Flink </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大数据 </tag>
+            
+            <tag> Flink </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大数据</title>
       <link href="/2021/10/06/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
       <url>/2021/10/06/%E5%A4%A7%E6%95%B0%E6%8D%AE/</url>
