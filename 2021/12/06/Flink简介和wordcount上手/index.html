@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Flink简介和wordcount上手 | 米南宫</title><meta name="keywords" content="大数据,Flink"><meta name="author" content="ysc,ysc_mng@163.com"><meta name="copyright" content="ysc"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Flink简介Apache Flink 是一个框架和分布式处理引擎，用于对无界和有界数据流进行有状态计算。 目标：低延迟、高吞吐、结果的准确性和良好的容错性 处理流数据行业：电商和市场营销（数据报表、广告投放、业务流程） ​                               物联网（传感器实时数据采集显示、实时报警、交通运输） ​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flink简介和wordcount上手">
+<meta property="og:url" content="https://minangong.github.io/2021/12/06/Flink%E7%AE%80%E4%BB%8B%E5%92%8Cwordcount%E4%B8%8A%E6%89%8B/index.html">
+<meta property="og:site_name" content="米南宫">
+<meta property="og:description" content="Flink简介Apache Flink 是一个框架和分布式处理引擎，用于对无界和有界数据流进行有状态计算。 目标：低延迟、高吞吐、结果的准确性和良好的容错性 处理流数据行业：电商和市场营销（数据报表、广告投放、业务流程） ​                               物联网（传感器实时数据采集显示、实时报警、交通运输） ​">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://minangong.github.io/mngImg/chengchi.jfif">
+<meta property="article:published_time" content="2021-12-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-12-06T15:33:28.865Z">
+<meta property="article:author" content="ysc">
+<meta property="article:tag" content="大数据">
+<meta property="article:tag" content="Flink">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://minangong.github.io/mngImg/chengchi.jfif"><link rel="shortcut icon" href="/mngImg/ninBuJie.png"><link rel="canonical" href="https://minangong.github.io/2021/12/06/Flink%E7%AE%80%E4%BB%8B%E5%92%8Cwordcount%E4%B8%8A%E6%89%8B/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Flink简介和wordcount上手',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-12-06 23:33:28'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="米南宫" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/mngImg/ninBuJie2.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/mngImg/yeWan.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">米南宫</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Flink简介和wordcount上手</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-05T16:00:00.000Z" title="发表于 2021-12-06 00:00:00">2021-12-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-06T15:33:28.865Z" title="更新于 2021-12-06 23:33:28">2021-12-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Flink/">Flink</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Flink简介和wordcount上手"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Flink简介"><a href="#Flink简介" class="headerlink" title="Flink简介"></a>Flink简介</h1><p>Apache Flink 是一个框架和分布式处理引擎，用于对无界和有界<strong>数据流</strong>进行<strong>有状态</strong>计算。</p>
+<p>目标：低延迟、高吞吐、结果的准确性和良好的容错性</p>
+<p>处理流数据行业：电商和市场营销（数据报表、广告投放、业务流程）</p>
+<p>​                               物联网（传感器实时数据采集显示、实时报警、交通运输）</p>
+<p>​                                电信业（基站流量调配）</p>
+<p>​                                银行和金融业（实时结算和通知推送，实时监测异常行为）</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><h3 id="传统数据处理架构"><a href="#传统数据处理架构" class="headerlink" title="传统数据处理架构"></a>传统数据处理架构</h3><p><img src="https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008170501860.png" alt="image-20211008170501860"></p>
+<p>管理系统、订单系统、wed应用等，读取并存储大量数据在数据库中。</p>
+<p>数据量大的时候，数据库做联表查询时代价就会很高。</p>
+<p>特点：实时性好，但是海量数据、高并发的时候不行。</p>
+<h3 id="离线分析处理架构"><a href="#离线分析处理架构" class="headerlink" title="离线分析处理架构"></a>离线分析处理架构</h3><p><img src="https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008170856808.png" alt="image-20211008170856808"></p>
+<p>特点：高并发可以，但是低延迟做不到</p>
+<h3 id="有状态的流式处理（第一代流处理器）"><a href="#有状态的流式处理（第一代流处理器）" class="headerlink" title="有状态的流式处理（第一代流处理器）"></a>有状态的流式处理（第一代流处理器）</h3><p><img src="https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008183614233.png" alt="image-20211008183614233"></p>
+<p><strong>低延迟：</strong>事务处理原则，来一个处理一个（关系数据库关联查询很麻烦）</p>
+<p><strong>高吞吐：</strong>所以直接把数据存在本地内存，存成本地状态。来了事务后，与本地状态进行计算输出，状态更新，就改。</p>
+<p><strong>容错：</strong> 数据在内存里，不稳定。节点挂了，数据丢失。所以需要存盘和故障恢复机制。所以设计了周期性的检查点（periodic checkpoint）,定期保存，出现故障，恢复到上个存盘点。检查点放在远程的持久化空间。</p>
+<p><strong>问题：</strong>分布式有延迟，数据的时间顺序保证不了</p>
+<h3 id="第二代流处理器"><a href="#第二代流处理器" class="headerlink" title="第二代流处理器"></a>第二代流处理器</h3><p><img src="https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008183551176.png" alt="image-20211008183551176"></p>
+<p><strong>lambda架构：</strong>用两套系统（批处理和流处理），同时保证低延迟和结果正确。流处理保证低延迟，批处理保证正确结果。</p>
+<p><strong>效果：</strong>用户会很快得到一个结果，但不一定结果正确。过一段时间后，获得正确结果。</p>
+<p><strong>特点：</strong>1. 需要维护两套系统</p>
+<h3 id="第三代流处理器"><a href="#第三代流处理器" class="headerlink" title="第三代流处理器"></a>第三代流处理器</h3><p><img src="https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008183940037.png" alt="image-20211008183940037"></p>
+<p><strong>Storm</strong>是第一代的流处理器（特点：<strong>低延迟</strong>，吞吐量不行，时间顺序不保证），<strong>spark streaming</strong>是批处理演变过来的（特点：<strong>高吞吐</strong>，保证正确，但不低延迟，时间顺序不保证）。</p>
+<h2 id="Flink特点"><a href="#Flink特点" class="headerlink" title="Flink特点"></a>Flink特点</h2><ul>
+<li>事件驱动：用户有事件，然后存到事件日志，读到Flink内部。然后查询本地状态（定期存盘，放在远程持久化存储空间）。输入和本地状态计算，得到结果，触发操作或者输出到输出事件日志。</li>
+</ul>
+<p><img src="https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008184455395.png" alt="image-20211008184455395"></p>
+<ul>
+<li><p>基于流的世界观</p>
+<p>离线数据是有界流，实时数据是无界流</p>
+</li>
+<li><p>分层API</p>
+<p><img src="https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008190354059.png" alt="image-20211008190354059"></p>
+</li>
+</ul>
+<p>顶层：表</p>
+<p>第二层：无界流主要用的是DataStream API，有界主要是DataSet API.</p>
+<p>底层：可以拿到事件、状态、定时间。</p>
+<ul>
+<li><p>支持事件时间（event-time）和处理时间（processing-time）</p>
+</li>
+<li><p>精确一次（exactly-once）的状态一致性保证</p>
+<p>结果正确（恢复后也要保证）</p>
+</li>
+<li><p>低延迟，每秒处理数百万个事件，毫秒级延迟</p>
+</li>
+<li><p>与众多常用存储系统的连接</p>
+</li>
+<li><p>高可用，动态扩展，实现7*24小时全天候运行</p>
+</li>
+</ul>
+<h2 id="Flink-vs-Spack-Streaming"><a href="#Flink-vs-Spack-Streaming" class="headerlink" title="Flink vs Spack Streaming"></a>Flink vs Spack Streaming</h2><ul>
+<li><p>流与微批</p>
+<p>Flink 流 毫秒级，Spark Streaming 微批 秒级。</p>
+</li>
+<li><p>数据模型</p>
+<p>spark：RDD模型，Spark streaming 的 DStream实际上就是一组组小批数据RDD的集合</p>
+<p>flink基本数据模型是数据流，以及事件</p>
+</li>
+<li><p>运行时架构</p>
+<p>spark是批计算,将DAG划分为不同的stage,一个完成后才可以计算下一个</p>
+<p>flink是标准的流执行模式，一个事件在一个节点处理完后可以直接发往下一个节点进行处理。</p>
+</li>
+</ul>
+<h1 id="Flink-wordcount"><a href="#Flink-wordcount" class="headerlink" title="Flink wordcount"></a>Flink wordcount</h1><h2 id="1-maven-pom-xml-依赖配置"><a href="#1-maven-pom-xml-依赖配置" class="headerlink" title="1.maven pom.xml 依赖配置"></a>1.maven pom.xml 依赖配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.flink&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;flink-java&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.13.1&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.flink&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;flink-streaming-scala_2.12&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.13.1&lt;/version&gt;</span><br><span class="line">&lt;!--            &lt;scope&gt;provided&lt;/scope&gt;--&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.flink&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;flink-clients_2.12&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.13.1&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-flink-wordcount"><a href="#2-flink-wordcount" class="headerlink" title="2. flink  wordcount"></a>2. flink  wordcount</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import org.apache.flink.api.common.functions.FlatMapFunction;</span><br><span class="line">import org.apache.flink.api.java.tuple.Tuple2;</span><br><span class="line">import org.apache.flink.api.java.utils.ParameterTool;</span><br><span class="line">import org.apache.flink.streaming.api.datastream.DataStream;</span><br><span class="line">import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;</span><br><span class="line">import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;</span><br><span class="line">import org.apache.flink.util.Collector;</span><br><span class="line"></span><br><span class="line">public class StreamWordCount &#123;</span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        //创建运行时流处理环境</span><br><span class="line">        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();</span><br><span class="line">        //线程数（分区数），默认是计算机的核数。输出前的3&gt; 表示在那个分区上计算的</span><br><span class="line">        env.setParallelism(4);</span><br><span class="line">        //从文件中读取数据</span><br><span class="line">        String inputPath = &quot;src/main/resources/wc.txt&quot;;</span><br><span class="line">        DataStream&lt;String&gt; inputDataStream = env.readTextFile(inputPath);</span><br><span class="line">        //用parameter tool工具从程序启动参数中提取配置项</span><br><span class="line">//        ParameterTool parameterTool = ParameterTool.fromArgs(args);</span><br><span class="line">//        String host = parameterTool.get(&quot;host&quot;);</span><br><span class="line">//        int port = parameterTool.getInt(&quot;port&quot;);</span><br><span class="line">        //从socket文本流读取数据</span><br><span class="line">//        env.socketTextStream(host,port);</span><br><span class="line"></span><br><span class="line">        //基于数据流进行转换计算</span><br><span class="line">        SingleOutputStreamOperator&lt;Tuple2&lt;String, Integer&gt;&gt; sum = inputDataStream.flatMap(new MyFlatMapperFunction())</span><br><span class="line">                .keyBy(0)</span><br><span class="line">                .sum(1);</span><br><span class="line">        //任务定义</span><br><span class="line">        sum.print();</span><br><span class="line">        //任务执行</span><br><span class="line">        env.execute();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    static class MyFlatMapperFunction implements FlatMapFunction&lt;String, Tuple2&lt;String,Integer&gt;&gt;&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void flatMap(String s, Collector&lt;Tuple2&lt;String, Integer&gt;&gt; collector) throws Exception &#123;</span><br><span class="line">            String[] words = s.split(&quot; &quot;);</span><br><span class="line">            for(String word : words)&#123;</span><br><span class="line">                collector.collect(new Tuple2&lt;&gt;(word,1));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:ysc_mng@163.com">ysc</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://minangong.github.io/2021/12/06/Flink%E7%AE%80%E4%BB%8B%E5%92%8Cwordcount%E4%B8%8A%E6%89%8B/">https://minangong.github.io/2021/12/06/Flink%E7%AE%80%E4%BB%8B%E5%92%8Cwordcount%E4%B8%8A%E6%89%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://minangong.github.io" target="_blank">米南宫</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><a class="post-meta__tags" href="/tags/Flink/">Flink</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/12/06/Flink%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"><img class="prev-cover" src="/mngImg/flink2.jfif" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">阿里云Linux下Flink环境部署</div></div></a></div><div class="next-post pull-right"><a href="/2021/11/13/JavaWeb/"><img class="next-cover" src="/mngImg/youmikuang.jfif" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JavaWeb</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/12/06/Flink%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="阿里云Linux下Flink环境部署"><img class="cover" src="/mngImg/flink2.jfif" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-06</div><div class="title">阿里云Linux下Flink环境部署</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/mngImg/ninBuJie2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ysc</div><div class="author-info__description">不再溺水的鱼</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:mng_ysc@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到米南宫的博客^_^</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Flink%E7%AE%80%E4%BB%8B"><span class="toc-text">Flink简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-text">架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84"><span class="toc-text">传统数据处理架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E7%BA%BF%E5%88%86%E6%9E%90%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84"><span class="toc-text">离线分析处理架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%8A%B6%E6%80%81%E7%9A%84%E6%B5%81%E5%BC%8F%E5%A4%84%E7%90%86%EF%BC%88%E7%AC%AC%E4%B8%80%E4%BB%A3%E6%B5%81%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%89"><span class="toc-text">有状态的流式处理（第一代流处理器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E4%BB%A3%E6%B5%81%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-text">第二代流处理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E4%BB%A3%E6%B5%81%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-text">第三代流处理器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flink%E7%89%B9%E7%82%B9"><span class="toc-text">Flink特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flink-vs-Spack-Streaming"><span class="toc-text">Flink vs Spack Streaming</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Flink-wordcount"><span class="toc-text">Flink wordcount</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-maven-pom-xml-%E4%BE%9D%E8%B5%96%E9%85%8D%E7%BD%AE"><span class="toc-text">1.maven pom.xml 依赖配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-flink-wordcount"><span class="toc-text">2. flink  wordcount</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/06/Flink%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="阿里云Linux下Flink环境部署"><img src="/mngImg/flink2.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里云Linux下Flink环境部署"/></a><div class="content"><a class="title" href="/2021/12/06/Flink%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="阿里云Linux下Flink环境部署">阿里云Linux下Flink环境部署</a><time datetime="2021-12-05T16:00:00.000Z" title="发表于 2021-12-06 00:00:00">2021-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/06/Flink%E7%AE%80%E4%BB%8B%E5%92%8Cwordcount%E4%B8%8A%E6%89%8B/" title="Flink简介和wordcount上手"><img src="/mngImg/chengchi.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Flink简介和wordcount上手"/></a><div class="content"><a class="title" href="/2021/12/06/Flink%E7%AE%80%E4%BB%8B%E5%92%8Cwordcount%E4%B8%8A%E6%89%8B/" title="Flink简介和wordcount上手">Flink简介和wordcount上手</a><time datetime="2021-12-05T16:00:00.000Z" title="发表于 2021-12-06 00:00:00">2021-12-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/13/JavaWeb/" title="JavaWeb"><img src="/mngImg/youmikuang.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaWeb"/></a><div class="content"><a class="title" href="/2021/11/13/JavaWeb/" title="JavaWeb">JavaWeb</a><time datetime="2021-11-12T16:00:00.000Z" title="发表于 2021-11-13 00:00:00">2021-11-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/13/Spring/" title="Spring"><img src="/mngImg/spring2.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring"/></a><div class="content"><a class="title" href="/2021/11/13/Spring/" title="Spring">Spring</a><time datetime="2021-11-12T16:00:00.000Z" title="发表于 2021-11-13 00:00:00">2021-11-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/27/mybatis3%E8%BF%9B%E9%98%B6/" title="Mybatis3进阶"><img src="/mngImg/mybatis.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mybatis3进阶"/></a><div class="content"><a class="title" href="/2021/10/27/mybatis3%E8%BF%9B%E9%98%B6/" title="Mybatis3进阶">Mybatis3进阶</a><time datetime="2021-10-26T16:00:00.000Z" title="发表于 2021-10-27 00:00:00">2021-10-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/mngImg/lan.png')"><div id="footer-wrap"><div class="copyright">&copy;2021 By ysc</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">欢迎来到米南宫的博客</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="米,南,宫" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

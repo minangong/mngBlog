@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://minangong.github.io/2021/12/06/Flink%E7%AE%80%E4%BB%8B%E5%92%8Cwordcount%E4%B8%8A%E6%89%8B/</loc>
+    
+    <lastmod>2021-12-06</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://minangong.github.io/2021/12/06/Flink%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/</loc>
     
     <lastmod>2021-12-06</lastmod>
@@ -65,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://minangong.github.io/2021/10/08/Flink%E7%AE%80%E4%BB%8B%E5%92%8Cwordcount%E4%B8%8A%E6%89%8B/</loc>
-    
-    <lastmod>2021-10-09</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://minangong.github.io/tags/index.html</loc>
     
     <lastmod>2021-10-07</lastmod>
@@ -109,20 +109,6 @@
 
   
   <url>
-    <loc>https://minangong.github.io/tags/java/</loc>
-    <lastmod>2021-12-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://minangong.github.io/tags/JavaWeb/</loc>
-    <lastmod>2021-12-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://minangong.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2021-12-06</lastmod>
     <changefreq>daily</changefreq>
@@ -138,6 +124,20 @@
   
   <url>
     <loc>https://minangong.github.io/tags/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2021-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://minangong.github.io/tags/java/</loc>
+    <lastmod>2021-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://minangong.github.io/tags/JavaWeb/</loc>
     <lastmod>2021-12-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -160,13 +160,6 @@
 
   
   <url>
-    <loc>https://minangong.github.io/categories/java/</loc>
-    <lastmod>2021-12-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://minangong.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2021-12-06</lastmod>
     <changefreq>daily</changefreq>
@@ -174,7 +167,7 @@
   </url>
   
   <url>
-    <loc>https://minangong.github.io/categories/java/JavaWeb/</loc>
+    <loc>https://minangong.github.io/categories/java/</loc>
     <lastmod>2021-12-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -189,6 +182,13 @@
   
   <url>
     <loc>https://minangong.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2021-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://minangong.github.io/categories/java/JavaWeb/</loc>
     <lastmod>2021-12-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
