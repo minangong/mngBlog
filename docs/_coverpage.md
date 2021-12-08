@@ -9,4 +9,5 @@
 * 😪👀😎😟😤💪💪💪💻🌕🌗🌑🌞😪😴
 
 [开始阅读](README.md)
-[我的Gitee](https://gitee.com/minan-palace/blog)
+[我的Gitee](https://minangong.github.io/mngBlog/)
+

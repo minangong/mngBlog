@@ -1,6 +1,6 @@
 #  导读
 
-> [米南宫笔记](http://minan-palace.gitee.io/blog/#/README)==> http://minan-palace.gitee.io/blog/#/README
+> [米南宫笔记](https://minangong.github.io/mngBlog/)==> https://minangong.github.io/mngBlog/
 
 该项目用于记录个人学习笔记，有部分内容来自图书、博客、论坛等。
 
@@ -10,9 +10,9 @@
 
 ## 目录
 
-* [cs基础知识](http://minan-palace.gitee.io/blog/#/study/cs基础知识/README.md)
-* [Java](http://minan-palace.gitee.io/blog/#/study/Java/README.md)
-* [大数据](http://minan-palace.gitee.io/blog/#/study/大数据/README.md)
+* [cs基础知识](https://minangong.github.io/mngBlog/#/study/cs基础知识/README.md)
+* [Java](https://minangong.github.io/mngBlog/#/study/Java/README.md)
+* [大数据](https://minangong.github.io/mngBlog/#/study/大数据/README.md)
 
   
 
