@@ -1,16 +1,3 @@
----
-title: 阿里云Linux下Flink环境部署
-tags: 
-   - 大数据
-   - Flink
-categories:
-   - 大数据
-   - Flink 
-date: 2021/12/6
-top_img: /mngImg/yeWan.jpg
-cover: /mngImg/flink2.jfif
----
-
 # 一、环境
 
 Linux系统版本：CentOS Linux release 7.6.1810

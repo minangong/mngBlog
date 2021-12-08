@@ -1,18 +1,3 @@
----
-title: JavaWeb
-tags: 
-   - java
-   - JavaWeb
-categories:
-   - java
-   - JavaWeb
-date: 2021/11/13
-top_img: /mngImg/house.jpg
-cover: /mngImg/youmikuang.jfif
----
-
-
-
 开始学习SpringMVC前，对JavaWeb做一个大致的了解
 
 # 一、Tomcat

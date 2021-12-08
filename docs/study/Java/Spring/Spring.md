@@ -1,19 +1,3 @@
----
-
-title: Spring
-tags: 
-   - java
-   - Spring
-categories:
-   - java
-   - Spring
-date: 2021/11/13
-top_img: /mngImg/mountains.jpg
-cover: /mngImg/spring2.jfif
----
-
-
-
 # 一、框架概述
 
 轻量级的JavaEE框架

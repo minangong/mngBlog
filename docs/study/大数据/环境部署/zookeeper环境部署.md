@@ -1,15 +1,3 @@
----
-title: Linux下zookeeper环境部署
-tags: 
-   - 环境部署
-categories:
-   - 大数据
-   - 环境部署
-date: 2021/10/8
-cover: /mngImg/zookeeper.jfif
-top_img: /mngImg/yeWan.jpg
----
-
 # 一、环境
 
 Linux系统版本：CentOS Linux release 7.6.1810
