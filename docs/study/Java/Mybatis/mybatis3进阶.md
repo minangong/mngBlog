@@ -1,3 +1,5 @@
+# mybatis3进阶
+
 # 一、mybatis映射文件
 
 1. mybatis返回sql语句影响的行数，可以在接口处定义返回的类型int,long,boolean(影响行数>0,true).
