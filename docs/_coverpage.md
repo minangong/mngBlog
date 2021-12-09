@@ -1,12 +1,13 @@
 ![logo](_media/icon.svg)
 
-# Ashiamd的个人MD笔记
+# 米南宫笔记
 
-> 希望自己能够越学越好，哈哈
+> 有的鱼，属于天空，但它得先学会游泳
 
 * 😀💻🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛😶
 * 😶💻🕜🕝🕞🕟🕠🕡🕢🕣🕤🕥🕦🕧😪
 * 😪👀😎😟😤💪💪💪💻🌕🌗🌑🌞😪😴
 
 [开始阅读](README.md)
-[我的GitHub](https://github.com/Ashiamd/docsify-notes)
+[我的Gitee](https://minangong.github.io/mngBlog/)
+
