@@ -220,7 +220,7 @@ TaskManager提供slot给JobManager,JobManager提交要执行的任务 。
 
 *ps：如果`算子.shuffle()`，能够强制算子之后重分区到不同slot执行下一个算子操作，逻辑上也实现了任务不参与任务链合并=>但是仅为“不参与任务链的合并”，这个明显不是最优解操作*
 
-> [Flink slotSharingGroup disableChain startNewChain 用法案例](
+> [Flink slotSharingGroup disableChain startNewChain 用法案例](https://blog.csdn.net/qq_31866793/article/details/102786249)
 
 
 
