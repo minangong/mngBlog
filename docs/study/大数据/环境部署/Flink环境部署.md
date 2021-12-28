@@ -170,3 +170,62 @@ flink cancel jobid //删除任务
 
 ![image-20211206231956027](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211206231956027.png)
 
+
+
+
+
+# 附录：wordcount代码
+
+三中提交的Jar包，从socket读取数据
+
+```java
+import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.api.java.utils.ParameterTool;
+import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.util.Collector;
+
+public class StreamWordCount {
+    public static void main(String[] args) throws Exception {
+        //创建运行时流处理环境
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+        //线程数（分区数），默认是计算机的核数。输出前的3> 表示在那个分区上计算的
+        env.setParallelism(4);
+        //从文件中读取数据
+//        String inputPath = "src/main/resources/wc.txt";
+//        DataStream<String> inputDataStream = env.readTextFile(inputPath);
+//        用parameter tool工具从程序启动参数中提取配置项
+        ParameterTool parameterTool = ParameterTool.fromArgs(args);
+        String host = parameterTool.get("host");
+        int port = parameterTool.getInt("port");
+//        从socket文本流读取数据
+        DataStream<String> inputDataStream = env.socketTextStream(host,port);
+
+        //基于数据流进行转换计算
+        SingleOutputStreamOperator<Tuple2<String, Integer>> sum = inputDataStream.flatMap(new MyFlatMapperFunction())
+                .keyBy(0)
+                .sum(1);
+        //任务定义
+        sum.print();
+        //任务执行
+        env.execute();
+
+    }
+    static class MyFlatMapperFunction implements FlatMapFunction<String, Tuple2<String,Integer>>{
+        @Override
+        public void flatMap(String s, Collector<Tuple2<String, Integer>> collector) throws Exception {
+            String[] words = s.split(" ");
+            for(String word : words){
+                collector.collect(new Tuple2<>(word,1));
+            }
+        }
+    }
+}
+
+```
+
+
+
