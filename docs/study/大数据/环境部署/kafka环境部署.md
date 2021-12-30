@@ -42,7 +42,9 @@ delete.topic.enable=true
 zookeeper.connect=localhost:2181,.....
 ```
 
+kafka 外网连接  需要设置监听端口(config/server.properties)
 
+![image-20211230185812523](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211230185812523.png)
 
 ## 3.启动kafka
 
