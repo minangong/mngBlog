@@ -1,8 +1,4 @@
-# 
-
-Flink Window API
-
-
+# Flink Window API
 
 # 一、window 概念
 
