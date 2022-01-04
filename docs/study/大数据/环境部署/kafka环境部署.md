@@ -33,6 +33,8 @@ mv /usr/local/mng/kafka_2.12-2.8.1.tgz /usr/local/mng/kafka
 
 ## 2.参数配置
 
+config/server.properties
+
 ```shell
 #broker 的全局唯一编号，不能重复
 broker.id=0
@@ -44,7 +46,20 @@ zookeeper.connect=localhost:2181,.....
 
 kafka 外网连接  需要设置监听端口(config/server.properties)
 
-![image-20211230185812523](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211230185812523.png)
+![image-20220104220713546](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220104220713546.png)
+
+
+
+**kafka无法关闭问题**
+
+修改kafka-server-stop.sh
+
+注释掉原来的那一行，增加新的一行
+kill -s KILL $PIDS
+
+![image-20220104221433733](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220104221433733.png)
+
+![image-20220104221047612](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220104221047612.png)
 
 ## 3.启动kafka
 
