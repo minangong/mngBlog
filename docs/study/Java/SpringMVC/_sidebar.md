@@ -3,7 +3,7 @@
   
   * [回到上一级（../）](/study/Java/README)
   
-  * [SpringMVC](/study/Java/Spring/SpringMVC)
+  * [SpringMVC](/study/Java/SpringMVC/SpringMVC)
   
     
 

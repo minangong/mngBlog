@@ -2,5 +2,5 @@
 
 ## 目录
 
-* [SpringMVC](/study/Java/Spring/SpringMVC)
+* [SpringMVC](/study/Java/SpringMVC/SpringMVC)
 
