@@ -1182,8 +1182,9 @@ public class WebConfig implements WebMvcConfigurer {
     
 作用：将模型数据通过页面展示给用户
 
-
-## 13.2 SpringMVC的执行流程
+## 13.2 DispatcherServlet调用组件处理请求
+[SpringMVC 源码解析笔记 - Seazean - 博客园 (cnblogs.com)](https://www.cnblogs.com/seazean/p/15095819.html)
+## 13.3 SpringMVC的执行流程
 
 1) 用户向服务器发送请求，请求被SpringMVC 前端控制器 DispatcherServlet捕获。
 
