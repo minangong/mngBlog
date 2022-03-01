@@ -1195,12 +1195,12 @@ a) 不存在
 i. 再判断是否配置了mvc:default-servlet-handler
 
 ii. 如果没配置，则控制台报映射查找不到，客户端展示404错误
+![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220301231039.png)
 
-![image-20210709214911404](file://C:\Users\LENOVO\Desktop\研究生学习\java\SpringMVC\笔记\img\img006.png?lastModify=1646145492)
 
 iii. 如果有配置，则访问目标资源（一般为静态资源，如：JS,CSS,HTML），找不到客户端也会展示404错误
+![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220301231039.png)
 
-![image-20210709215255693](file://C:\Users\LENOVO\Desktop\研究生学习\java\SpringMVC\笔记\img\img008.png?lastModify=1646145492)
 
 
 b) 存在则执行下面的流程
