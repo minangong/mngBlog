@@ -1,4 +1,7 @@
+# SpringBoot基础
+
 # 一、springBoot简介
+
   Springboot是由Pivotal团队提供的全新框架，其设计目的是用来简化Spring应用的初始
 搭建以及开发过程
 
@@ -31,7 +34,7 @@ Setting → File Types → Ignored Files and Folders
 * 实际开发时，对于依赖坐标的使用往往都有一些固定的组合方式，比如使用spring-webmvc就一定要使用spring-web。SpringBoot将其统一集成进starter，应用者只需要在maven中引入starter依赖，SpringBoot就能自动扫描到要加载的信息并启动相应的默认配置。【快速配置、简化配置】
 
 [SpringBoot应用篇（一）：自定义starter - 超级小小黑 - 博客园 (cnblogs.com)](https://www.cnblogs.com/hello-shf/p/10864977.html)
-  
+
 
 **实际开发：**
 * 实际开发中如果需要用什么技术，先去找有没有这个技术对应的starter
