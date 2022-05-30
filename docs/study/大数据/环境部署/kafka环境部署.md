@@ -46,7 +46,7 @@ zookeeper.connect=localhost:2181,.....
 
 kafka 外网连接  需要设置监听端口(config/server.properties)
 
-![image-20220104220713546](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220104220713546.png)
+![image-20220104220713546](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220104220713546.png)
 
 
 
@@ -57,9 +57,9 @@ kafka 外网连接  需要设置监听端口(config/server.properties)
 注释掉原来的那一行，增加新的一行
 kill -s KILL $PIDS
 
-![image-20220104221433733](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220104221433733.png)
+![image-20220104221433733](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220104221433733.png)
 
-![image-20220104221047612](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220104221047612.png)
+![image-20220104221047612](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220104221047612.png)
 
 ## 3.启动kafka
 
@@ -69,7 +69,7 @@ bin/kafka-server-start.sh -daemon config/server.properties
 
 后台运行：ctrl+z，然后bg,回车
 
-![image-20211228194940605](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211228194940605.png)
+![image-20211228194940605](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211228194940605.png)
 
 
 

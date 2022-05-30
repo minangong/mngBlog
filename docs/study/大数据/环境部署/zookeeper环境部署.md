@@ -31,15 +31,15 @@ cd conf
 mv zoo_sample.cfg zoo.cfg
 ```
 
-![image-20211009225058505](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211009225058505.png)
+![image-20211009225058505](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211009225058505.png)
 
 dataDir、dataLogDir参数修改
 
-![image-20211010000856253](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211010000856253.png)
+![image-20211010000856253](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211010000856253.png)
 
 文件末添加（zookeeper集群，server.2 、server.3.......）
 
-![image-20211009225754585](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211009225754585.png)
+![image-20211009225754585](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211009225754585.png)
 
 在dataDir目录下新建myid文件作为主机标识。
 
@@ -66,9 +66,9 @@ cd /usr/local/mng/zookeeper/bin
 ./zkServer.sh status
 ```
 
-![image-20211010000750938](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211010000750938.png)
+![image-20211010000750938](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211010000750938.png)
 
-![image-20211010000735372](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211010000735372.png)
+![image-20211010000735372](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211010000735372.png)
 
 zookeeper以单机模式运行，2354进程就是zookeeper进程
 
@@ -98,6 +98,6 @@ source ~/.bashrc
 ./zkServer.sh status
 ```
 
-![image-20211010003053877](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211010003053877.png)
+![image-20211010003053877](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211010003053877.png)
 
 不需要进入或者写 zookeeper/bin 了

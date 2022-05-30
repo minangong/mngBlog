@@ -36,7 +36,7 @@ firewall-cmd --list-ports
 firewall-cmd --zone=public --add-masquerade --permanent
 ```
 
-![image-20211010100416018](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211010100416018.png)
+![image-20211010100416018](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211010100416018.png)
 
 
 
@@ -233,7 +233,7 @@ sbin/start-yarn.sh
 
 
 
-![image-20211010193449982](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211010193449982.png)
+![image-20211010193449982](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211010193449982.png)
 
 Datanode、SecondaryNameNode是dfs的进程
 

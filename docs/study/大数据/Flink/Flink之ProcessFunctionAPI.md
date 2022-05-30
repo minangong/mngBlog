@@ -23,7 +23,7 @@ Flink提供了8个Process Function：
 
 * `processElement(I value, Context ctx, Collector<O> out)`，流中的每一个元素都会调用这个方法，调用结果将会放在Collector数据类型中输出。Context可以访问元素的时间戳，元素的 key ，以及TimerService 时间服务。 Context 还可以将结果输出到别的流(side outputs)。
 
-  ![image-20220118010303365](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220118010303365.png)
+  ![image-20220118010303365](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220118010303365.png)
 
   timeservice可以获得时间或者注册删除触发器（定时间）
 
@@ -90,7 +90,7 @@ sensor_1,1547718207,36.3
 
 输出
 
-![image-20220118011017681](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220118011017681.png)
+![image-20220118011017681](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220118011017681.png)
 
 
 
@@ -225,7 +225,7 @@ sensor_7,1547718202,9.1
 
 输出
 
-![image-20220118230823416](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220118230823416.png)
+![image-20220118230823416](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220118230823416.png)
 
 
 
@@ -306,7 +306,7 @@ sensor_10,1547718205,38.1
 
 输出
 
-![image-20220119000340808](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220119000340808.png)
+![image-20220119000340808](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220119000340808.png)
 
 
 

@@ -163,7 +163,7 @@ application.properties  >  application.yml  >  application.yaml
 
 1. 【Files】→【Project Structure...】-->【Facets】,选择提示功能消失的模块
 2. 点击Customize Spring Boot按钮，此时可以看到当前模块对应的配置文件是哪些了。如果没有你想要称为配置文件的文件格式，就有可能无法弹出提示
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220303234727.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20220303234727.png)
 3. 选择添加配置文件，然后选中要作为配置文件的具体文件就OK了
 
 
@@ -190,19 +190,19 @@ users:							 #对象数组格式一
 yaml中保存的单个数据，可以使用Spring中的注解直接读取，使用@Value可以读取单个数据，属性名引用方式：**${一级属性名.二级属性名……}**
 记得使用@Value注解时，要将该注入写在某一个指定的Spring管控的**bean的属性名**上方。现在就可以读取到对应的单一数据行了。
 
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220304110331.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20220304110331.png)
 
 ### 3.6.2 读取全部数据
 1.  使用Environment对象封装全部配置信息
 2.  使用@Autowired自动装配数据到Environment对象中
 3.  调用时使用getProperties(String),参数填写属性名即可
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220304111553.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20220304111553.png)
 
 
 ### 3.6.3 读取对象数据
 首先定义一个对象，并将该对象纳入Spring管控的范围，也就是定义成一个bean，然后使用注解@ConfigurationProperties指定该对象加载哪一组yaml中配置的信息。
 调用时@Autowired注入
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220304221940.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20220304221940.png)
 
 
 

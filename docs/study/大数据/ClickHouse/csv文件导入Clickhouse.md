@@ -24,7 +24,7 @@ SETTINGS index_granularity = 8192 ;
 ```
 
 ## 3.
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220502011315.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20220502011315.png)
 
 ```
 cat /dev/shm/data | clickhouse-client -h 123.456.1.789 --query="insert into database.table FORMAT CSV"```

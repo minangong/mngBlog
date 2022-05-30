@@ -22,7 +22,7 @@ Apache Flink 是一个框架和分布式处理引擎，用于对无界和有界*
 
 ### 1.1.1 传统数据处理架构
 
-![image-20211008170501860](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008170501860.png)
+![image-20211008170501860](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211008170501860.png)
 
 管理系统、订单系统、wed应用等，读取并存储大量数据在数据库中。
 
@@ -32,7 +32,7 @@ Apache Flink 是一个框架和分布式处理引擎，用于对无界和有界*
 
 ### 1.1.2 离线分析处理架构
 
-![image-20211008170856808](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008170856808.png)
+![image-20211008170856808](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211008170856808.png)
 
 特点：高并发可以，但是低延迟做不到
 
@@ -40,7 +40,7 @@ Apache Flink 是一个框架和分布式处理引擎，用于对无界和有界*
 
 ### 1.1.3 有状态的流式处理（第一代流处理器）
 
-![image-20211008183614233](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008183614233.png)
+![image-20211008183614233](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211008183614233.png)
 
 **低延迟：**事务处理原则，来一个处理一个（关系数据库关联查询很麻烦）
 
@@ -54,7 +54,7 @@ Apache Flink 是一个框架和分布式处理引擎，用于对无界和有界*
 
 ### 1.1.4 第二代流处理器
 
-![image-20211008183551176](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008183551176.png)
+![image-20211008183551176](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211008183551176.png)
 
 **lambda架构：**用两套系统（批处理和流处理），同时保证低延迟和结果正确。流处理保证低延迟，批处理保证正确结果。
 
@@ -66,7 +66,7 @@ Apache Flink 是一个框架和分布式处理引擎，用于对无界和有界*
 
 ### 1.1.5 第三代流处理器
 
-![image-20211008183940037](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008183940037.png)
+![image-20211008183940037](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211008183940037.png)
 
 **Storm**是第一代的流处理器（特点：**低延迟**，吞吐量不行，时间顺序不保证），**spark streaming**是批处理演变过来的（特点：**高吞吐**，保证正确，但不低延迟，时间顺序不保证）。
 
@@ -76,7 +76,7 @@ Apache Flink 是一个框架和分布式处理引擎，用于对无界和有界*
 
 * 事件驱动：用户有事件，然后存到事件日志，读到Flink内部。然后查询本地状态（定期存盘，放在远程持久化存储空间）。输入和本地状态计算，得到结果，触发操作或者输出到输出事件日志。
 
-![image-20211008184455395](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008184455395.png)
+![image-20211008184455395](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211008184455395.png)
 
 * 基于流的世界观
 
@@ -84,7 +84,7 @@ Apache Flink 是一个框架和分布式处理引擎，用于对无界和有界*
 
 * 分层API
 
-  ![image-20211008190354059](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211008190354059.png)
+  ![image-20211008190354059](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211008190354059.png)
 
 顶层：表
 
@@ -206,7 +206,7 @@ public class StreamWordCount {
 
 ## 3.1 Flink四大组件
 
-![image-20211207094614608](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211207094614608.png)
+![image-20211207094614608](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211207094614608.png)
 
 ### 3.1.1 作业管理器（JobManager）
 
@@ -258,7 +258,7 @@ public class StreamWordCount {
 
 ## 3.2 任务提交流程
 
-![image-20211207223625524](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211207223625524.png)
+![image-20211207223625524](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211207223625524.png)
 
 首先，提交应用给Dispatcher
 
@@ -278,7 +278,7 @@ TaskManager提供slot给JobManager,JobManager提交要执行的任务 。
 
 ### 3.2.1 Yarn上作业提交流程
 
-![image-20211213093432995](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211213093432995.png)
+![image-20211213093432995](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211213093432995.png)
 
 1. Flink任务提交后，Client向HDFS上传Flink的Jar包和配置
 2. 之后客户端向Yarn ResourceManager提交任务，ResourceManager分配Container资源并通知对应的NodeManager启动ApplicationMaster
@@ -288,7 +288,7 @@ TaskManager提供slot给JobManager,JobManager提交要执行的任务 。
 
 ## 3.3 任务调度原理
 
-![image-20211207234948465](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211207234948465.png)
+![image-20211207234948465](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211207234948465.png)
 
 
 
@@ -437,7 +437,7 @@ TaskManager提供slot给JobManager,JobManager提交要执行的任务 。
 
 # 四、Flink状态管理
 
-![image-20220109235904442](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220109235904442.png)
+![image-20220109235904442](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220109235904442.png)
 
 1. 由一个任务维护，并且用来计算某个结果的所有数据，都属于这个任务的状态；
 2. 可以认为任务状态就是一个本地变量，可以被任务的业务逻辑访问；
@@ -463,7 +463,7 @@ TaskManager提供slot给JobManager,JobManager提交要执行的任务 。
 
 ## 4.1 算子状态（Operator State）
 
-![image-20220110222303777](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220110222303777.png)
+![image-20220110222303777](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220110222303777.png)
 
 * 算子状态的作用范围限定为算子任务，同一并行任务所处理的所有数据都可以访问到相同的状态。
 * 状态对于**同一任务**而言是共享的。（**不能跨slot**）
@@ -482,7 +482,7 @@ TaskManager提供slot给JobManager,JobManager提交要执行的任务 。
 
 ## 4.2 键控状态（Keyed State）
 
-![image-20220113235444881](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220113235444881.png)
+![image-20220113235444881](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220113235444881.png)
 
 * 键控状态是根据输入数据流中定义的键（key）来维护和访问的 
 
@@ -507,7 +507,7 @@ TaskManager提供slot给JobManager,JobManager提交要执行的任务 。
 
 ### 4.2.2 键控状态的使用
 
-![image-20220116014219016](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220116014219016.png)
+![image-20220116014219016](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220116014219016.png)
 
 
 
@@ -609,7 +609,7 @@ sensor_7,1547718202,30
 
 输出：
 
-![image-20220116014304430](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220116014304430.png)
+![image-20220116014304430](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220116014304430.png)
 
 
 
@@ -641,13 +641,13 @@ sensor_7,1547718202,30
 
 flink-conf.yaml
 
-![image-20220116015145134](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220116015145134.png)
+![image-20220116015145134](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220116015145134.png)
 
 
 
 ### 4.3.4 示例代码
 
-![image-20220116015236952](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220116015236952.png)
+![image-20220116015236952](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220116015236952.png)
 
 
 
@@ -657,7 +657,7 @@ flink-conf.yaml
 
 ## 5.1一致性检查点（checkpoint）
 
-![image-20220116203001731](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220116203001731.png)
+![image-20220116203001731](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220116203001731.png)
 
 * Flink 故障恢复机制的核心，就是应用状态的一致性检查点
 
@@ -675,23 +675,23 @@ flink-conf.yaml
 
 （**如下图所示，7这个数据被source读到了，准备传给奇数流时，奇数流宕机了，数据传输发生中断**）
 
-![image-20220116233538105](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220116233538105.png)
+![image-20220116233538105](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220116233538105.png)
 
 * 遇到故障之后，第一步就是重启应用
 
-![image-20220116233611314](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220116233611314.png)
+![image-20220116233611314](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220116233611314.png)
 
 * 第二步是从 checkpoint 中读取状态，将状态重置
 
 从检查点重新启动应用程序后，其内部状态与检查点完成时的状态完全相同
 
-![image-20220116233701994](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220116233701994.png)
+![image-20220116233701994](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220116233701994.png)
 
 * 第三步：开始消费并处理检查点到发生故障之间的所有数据 
 
 这种检查点的保存和恢复机制可以为应用程序状态提供“精确一次” （exactly-once）的一致性，因为所有算子都会保存检查点并恢复其所有状态，这样一来所有的输入流就都会被重置到检查点完成时的位置
 
-![image-20220116233642658](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220116233642658.png)
+![image-20220116233642658](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220116233642658.png)
 
 *（这里要求source源也能记录状态，回退到读取数据7的状态，kafka有相应的偏移指针能完成该操作）*
 
@@ -726,7 +726,7 @@ flink-conf.yaml
 
 ### 具体讲解
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200529224034243.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200529224034243.png)
 
 + 现在是一个有两个输入流的应用程序，用并行的两个 Source 任务来读取
 
@@ -736,13 +736,13 @@ flink-conf.yaml
 
 + 偶数流已经处理完`黄2` 所以后面显示为2， 奇数流处理完`蓝1 和 黄1 黄3` 所以为5，并分别往下游发送每次聚合后的结果给Sink
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200529224517502.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200529224517502.png)
 
 + **JobManager 会向每个 source 任务发送一条带有新检查点 ID 的消息**，通过这种方式来启动检查点
 
   *（这个带有新检查点ID的东西为**barrier**，由图中三角型表示，数值2只是ID）*
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200529224705177.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200529224705177.png)
 
 + 数据源将它们的状态写入检查点，并发出一个检查点barrier
 + 状态后端在状态存入检查点之后，会返回通知给source任务，source任务就会向JobManager确认检查点完成
@@ -755,7 +755,7 @@ flink-conf.yaml
 
 ​	*此时检查点barrier都还未到Sum_odd奇数流和Sum_even偶数流*
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200529225235834.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200529225235834.png)
 
 + **分界线对齐：barrier向下游传递，sum任务会等待所有输入分区的barrier到达**
 + **对于barrier已经达到的分区，继续到达的数据会被缓存**
@@ -765,7 +765,7 @@ flink-conf.yaml
 
 ​	*这次处理的总结：**分界线对齐**：**barrier 向下游传递，sum 任务会等待所有输入分区的 barrier 到达，对于barrier已经到达的分区，继续到达的数据会被缓存。而barrier尚未到达的分区，数据会被正常处理***
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200529225656902.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200529225656902.png)
 
 + **当收到所有输入分区的 barrier 时，任务就将其状态保存到状态后端的检查点中，然后将 barrier 继续向下游转发**
 
@@ -773,11 +773,11 @@ flink-conf.yaml
 
 ​	*此时的偶数流和奇数流都为8*
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200529230413317.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200529230413317.png)
 
 + 向下游转发检查点 barrier 后，任务继续正常的数据处理
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/2020052923042436.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/2020052923042436.png)
 
 + **Sink 任务向 JobManager 确认状态保存到 checkpoint 完毕**
 + **当所有任务都确认已成功将状态保存到检查点时，检查点就真正完成了**
@@ -863,7 +863,7 @@ flink-conf.yaml
 
 ## 6.1 概述
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200530181851687.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200530181851687.png)
 
 + 有状态的流处理，内部每个算子任务都可以有自己的状态
 
@@ -919,7 +919,7 @@ flink-conf.yaml
 
   *（中间可能会存在不正确的情况，只能保证最后结果正确。比如5=>10=>15=>5=>10=>15，虽然最后是恢复到了15，但是中间有个恢复的过程，如果这个过程能够被读取，就会出问题。）*
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/2020053019091138.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/2020053019091138.png)
 
 #### 事务写入
 
@@ -951,7 +951,7 @@ flink-conf.yaml
 
 ### 不同Source和Sink的一致性保证
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200530194322578.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200530194322578.png)
 
 
 
@@ -965,22 +965,22 @@ flink-conf.yaml
 
 ### Exactly-once 两阶段提交
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200530194434435.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200530194434435.png)
 
 + JobManager 协调各个 TaskManager 进行 checkpoint 存储
 + checkpoint保存在 StateBackend中，默认StateBackend是内存级的，也可以改为文件级的进行持久化保存
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200530194627287.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200530194627287.png)
 
 + 当 checkpoint 启动时，JobManager 会将检查点分界线（barrier）注入数据流
 + barrier会在算子间传递下去
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200530194657186.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200530194657186.png)
 
 + 每个算子会对当前的状态做个快照，保存到状态后端
 + checkpoint 机制可以保证内部的状态一致性
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200530194835593.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200530194835593.png)
 
 + 每个内部的 transform 任务遇到 barrier 时，都会把状态存到 checkpoint 里
 
@@ -988,7 +988,7 @@ flink-conf.yaml
 
   *(barrier之前的数据还是在之前的事务中没关闭事务，遇到barrier后的数据另外新开启一个事务)*
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/2020053019485194.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/2020053019485194.png)
 
 + 当所有算子任务的快照完成，也就是这次的 checkpoint 完成时，JobManager 会向所有任务发通知，确认这次 checkpoint 完成
 + sink 任务收到确认通知，正式提交之前的事务，kafka 中未确认数据改为“已确认”
@@ -1624,7 +1624,7 @@ sql> (true,sensor_1,2019-01-17T09:43:32,3,35.4)
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200601214323293.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMTgwMjI5,size_16,color_FFFFFF,t_70)
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/2020060121433777.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/2020060121433777.png)
 
 ## 8.1 用户自定义函数(UDF)
 
@@ -1904,7 +1904,7 @@ sql> sensor_1,1547718212,1,1
 + 用户自定义聚合函数（User-Defined Aggregate Functions，UDAGGs）可以把一个表中的数据，聚合成一个标量值
 + 用户定义的聚合函数，是通过继承 AggregateFunction 抽象类实现的
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200601221643915.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200601221643915.png)
 
 + AggregationFunction要求必须实现的方法
   + `createAccumulator()`
@@ -2024,7 +2024,7 @@ sql> (true,sensor_1,35.5)
 + 用户定义的表聚合函数（User-Defined Table Aggregate Functions，UDTAGGs），可以把一个表中数据，聚合为具有多行和多列的结果表
 + 用户定义表聚合函数，是通过继承 TableAggregateFunction 抽象类来实现的
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200601223517314.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200601223517314.png)
 
 + AggregationFunction 要求必须实现的方法：
   + `createAccumulator()`

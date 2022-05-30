@@ -15,11 +15,11 @@
 
 * MyBatis是一个**半自动化**的持久化层框架。 
 
-  ![image-20211011001224929](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211011001224929.png)
+  ![image-20211011001224929](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211011001224929.png)
 
 * JDBC 
 
-  ![image-20211011000630449](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211011000630449.png)
+  ![image-20211011000630449](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211011000630449.png)
 
   – SQL夹在Java代码块里，**耦合度高**导致硬编码内伤 
 
@@ -27,7 +27,7 @@
 
 * Hibernate和JPA 
 
-  ![image-20211011001246014](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211011001246014.png)
+  ![image-20211011001246014](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211011001246014.png)
 
   – **长难复杂SQL**，对于Hibernate而言处理也不容易 
 
@@ -237,7 +237,7 @@ try (SqlSession session = sqlSessionFactory.openSession()) {
 
 所以mybatis-config.xml的配置可以在.properties文件（或者yaml文件）中配置，spring把这个xml的工作做了。
 
-![image-20211016213747670](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211016213747670.png)
+![image-20211016213747670](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211016213747670.png)
 
 ## 2.设置（Settings）
 
@@ -311,19 +311,19 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, propert
 
 首先,mybatis-config.xml中配置了两个数据源, 两个数据源数据不同（development lastname是asdddd  haha lastname 是mng）
 
-![image-20211017000035744](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211017000035744.png)
+![image-20211017000035744](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211017000035744.png)
 
 
 
 根据mybatis全局配置文件 和  emvironment id 生成SqlSessionFactory
 
-![image-20211017003533099](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211017003533099.png)
+![image-20211017003533099](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211017003533099.png)
 
 
 
 获得SqlSession、根据接口获得mapper后查表 结果：
 
-![image-20211017010620558](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211017010620558.png)
+![image-20211017010620558](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211017010620558.png)
 
 **多数据库 单数据源  成功**
 
@@ -335,7 +335,7 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, propert
 
 \<environment\>中可以配置多个数据源，但是mapper接口在调用方法时，对于不同数据源应该调用不同的SQL语句。根据环境的驱动，采用不同的SQL语句，所以SQL语句要加上数据库厂商的标识
 
-![image-20211017013138499](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211017013138499.png)
+![image-20211017013138499](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211017013138499.png)
 
 ```xml
     <!--给数据源起别名-->
@@ -357,7 +357,7 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, propert
     </select>
 ```
 
-![image-20211017013613938](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211017013613938.png)
+![image-20211017013613938](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211017013613938.png)
 
 
 
@@ -394,7 +394,7 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, propert
 
 ​                                        没有映射文件，基于注解，开发容易。  
 
-![image-20211017015426310](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211017015426310.png)
+![image-20211017015426310](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211017015426310.png)
 
 
 
@@ -402,19 +402,19 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, propert
 
 全局配置文件注册 注解的接口：
 
-![image-20211017020555875](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211017020555875.png)
+![image-20211017020555875](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211017020555875.png)
 
 
 
 接口定义：
 
-![image-20211017020631004](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211017020631004.png)
+![image-20211017020631004](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211017020631004.png)
 
 调用运行及结果：
 
-![image-20211017020701214](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211017020701214.png)
+![image-20211017020701214](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211017020701214.png)
 
-![image-20211017020720613](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211017020720613.png)
+![image-20211017020720613](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211017020720613.png)
 
 
 
@@ -424,4 +424,4 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, propert
 
 代码最后都会合并到bin (idea 是target）文件目录下，所以可以接口放在src/包名下，映射文件放在conf/相同包名下。
 
-![image-20211017020336230](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211017020336230.png)
+![image-20211017020336230](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211017020336230.png)

@@ -10,7 +10,7 @@
 
 * Flink的SQL支持基于实现了SQL标准的Apache Calcite
 
-  ![image-20220120170245054](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220120170245054.png)
+  ![image-20220120170245054](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220120170245054.png)
 
 
 
@@ -80,7 +80,7 @@ public class easyTest {
 
 输出：
 
-![image-20220121235838742](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220121235838742.png)
+![image-20220121235838742](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220121235838742.png)
 
 # 二、基本程序结构
 
@@ -262,7 +262,7 @@ public class TableTest {
 
 输出：
 
-![image-20220124232847085](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220124232847085.png)
+![image-20220124232847085](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220124232847085.png)
 
 #### 3.2.2.2 从kafka中创建表
 
@@ -291,11 +291,11 @@ kafka创建生产者并输入数据：
 bin/kafka-console-producer.sh --broker-list 47.94.161.48:9092  --topic sensor
 ```
 
-![image-20220125014248780](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220125014248780.png)
+![image-20220125014248780](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220125014248780.png)
 
 输出：
 
-![image-20220125014322587](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220125014322587.png)
+![image-20220125014322587](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220125014322587.png)
 
 ### 3.2.3 基于DDL建表语句，就是Create Table方式
 
@@ -452,7 +452,7 @@ kafka生产者：
 bin/kafka-console-producer.sh --broker-list localhost:9092  --topic sensor
 ```
 
-![image-20220125213441927](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220125213441927.png)
+![image-20220125213441927](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220125213441927.png)
 
 kafka消费者：
 
@@ -460,7 +460,7 @@ kafka消费者：
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic sinktest
 ```
 
-![image-20220125213409141](https://gitee.com/minan-palace/md_images/raw/master/images2/image-20220125213409141.png)
+![image-20220125213409141](https://raw.githubusercontent.com/minangong/mng_images/main/images2/image-20220125213409141.png)
 
 
 
@@ -648,7 +648,7 @@ DataStream aggResultStream = tableEnv.toRetractStream(aggResultTable , Row.class
 
 ### 3.11.1 动态表和持续查询
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200601190927869.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200601190927869.png)
 
 流式表查询的处理过程：
 
@@ -667,7 +667,7 @@ DataStream aggResultStream = tableEnv.toRetractStream(aggResultTable , Row.class
 
 *来一条数据插入一条数据*
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200601191016684.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200601191016684.png)
 
 ### 3.11.3 持续查询
 
@@ -679,7 +679,7 @@ DataStream aggResultStream = tableEnv.toRetractStream(aggResultTable , Row.class
 
 ​	下图为一个点击事件流的持续查询，是一个分组聚合做count统计的查询。
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200601191112183.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200601191112183.png)
 
 ### 3.11.4 将动态表转换成 DataStream
 
@@ -706,4 +706,4 @@ DataStream aggResultStream = tableEnv.toRetractStream(aggResultTable , Row.class
 
 ### 3.11.5 将动态表转换成DataStream
 
-![在这里插入图片描述](https://gitee.com/minan-palace/md_images/raw/master/images2/20200601191549610.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20200601191549610.png)

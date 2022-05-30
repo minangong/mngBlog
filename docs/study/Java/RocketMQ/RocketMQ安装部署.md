@@ -21,15 +21,15 @@ unzip rocketmq-all-4.9.2-bin-release.zip
 JAVA_OPT="${JAVA_OPT} -server -Xms256m -Xmx256m -Xmn128m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m"
 ```
 ### 3.1 runserver.sh
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220209143633.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20220209143633.png)
 
 修改后：
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220209174541.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20220209174541.png)
 
 
 ### 3.2 runbroker.sh
 修改后：
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220209174430.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20220209174430.png)
 
 
 ## 3.3 broker.conf
@@ -51,7 +51,7 @@ brokerIP1=IP
 ```shell
 nohup sh bin/mqnamesrv & tail -f ~/logs/rocketmqlogs/namesrv.log
 ```
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220209181136.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20220209181136.png)
 
 
 启动broker
@@ -61,7 +61,7 @@ nohup sh bin/mqbroker -n localhost:9876 -c conf/broker.conf & tail -f ~/logs/roc
 ```
 
 
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220209181256.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20220209181256.png)
 
 
 ## 5.发送/接收消息测试

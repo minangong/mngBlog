@@ -8,7 +8,7 @@ clickhouse: [Release v21.8.8.29](https://github.com/ClickHouse/ClickHouse/releas
 
 下载下面四个文件，尚硅谷的资源应该也可以用（具体看三、真正的问题与解决）
 
-![image-20211013001349877](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211013001349877.png)
+![image-20211013001349877](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211013001349877.png)
 
 
 
@@ -28,7 +28,7 @@ firewall-cmd --list-ports
 
 ## 2.2 centos取消打开文件数限制
 
-![image-20211011214714451](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211011214714451.png)
+![image-20211011214714451](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211011214714451.png)
 
 * /etc/security/limits.conf 文件的末尾加入以下内容
 
@@ -93,13 +93,13 @@ sudo clickhouse-client-21.8.8.29/install/doinst.sh
 
 **如果是阿里云,不要打开这个注释，开放\<listen_host\>0.0.0.0\</listen_host\>, 即只开放ipv4**
 
-![image-20211011234949278](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211011234949278.png)
+![image-20211011234949278](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211011234949278.png)
 
 
 
 如果担心hadoop的9000端口和clickhouse冲突，可以**将\<tcp_port\>改为9001**
 
-![image-20211013002031091](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211013002031091.png)
+![image-20211013002031091](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211013002031091.png)
 
 ## 2.7 启动Server
 
@@ -107,7 +107,7 @@ sudo clickhouse-client-21.8.8.29/install/doinst.sh
 sudo /etc/init.d/clickhouse-server start
 ```
 
-![image-20211013001549744](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211013001549744.png)
+![image-20211013001549744](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211013001549744.png)
 
 ## 2.8 使用 client 连接 server
 
@@ -115,13 +115,13 @@ sudo /etc/init.d/clickhouse-server start
 clickhouse-client -m  --port 9001
 ```
 
-![image-20211013001608847](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211013001608847.png)
+![image-20211013001608847](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211013001608847.png)
 
 ## 2.9 主机访问
 
 云服务器IP:8123/play
 
-![image-20211013002517328](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211013002517328.png)
+![image-20211013002517328](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211013002517328.png)
 
 # 三、问题与解决
 
@@ -156,13 +156,13 @@ clickhouse-client -m  --port 9001
 
 ​      我在这里重启clickhouse-server,但是每次重启都失败了，于是按照上面搞笑的3.3: 删了，改config, 然后启动服务，但是发现：
 
-![image-20211012235900777](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211012235900777.png)
+![image-20211012235900777](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211012235900777.png)
 
 可以看到：第一还是**监听9000端口**. 第二8123、9000监听的都是**127.0.0.1，是云服务器自己的请求**。
 
 **所以，查看日志！！！**
 
-![image-20211013000422158](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211013000422158.png)
+![image-20211013000422158](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211013000422158.png)
 
 日志中有这么一段：
 
@@ -182,7 +182,7 @@ Cannot assign requested address: [::1]:8123，需要是否区分支持IPV4或者
 
 **修改为<listen_host>0.0.0.0</listen_host>后，重启成功！！！！！！**
 
-![image-20211013000957295](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211013000957295.png)
+![image-20211013000957295](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211013000957295.png)
 
 **所以，看日志！！！！**之前只看了systemctl status clickhouse-server。
 
@@ -236,7 +236,7 @@ public class Test {
 
 执行后，
 
-![image-20211013003227104](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211013003227104.png)
+![image-20211013003227104](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211013003227104.png)
 
 **成功！！**
 

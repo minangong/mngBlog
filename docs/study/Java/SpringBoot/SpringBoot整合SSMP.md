@@ -159,7 +159,7 @@ jdbc.password=root
 
 ## 2.2 SpringBoot整合Mybatis
 * 1. 创建模块时勾选要使用的技术，MyBatis，由于要操作数据库，还要勾选对应数据库
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220306002249.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20220306002249.png)
 
 或者手工导入对应技术的starter，和对应数据库的坐标
 ```xml
@@ -688,4 +688,4 @@ public class pageController {
 
 ## 5.7 运行
 运行启动类后，访问local:8080/pages/books.html
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/20220309011347.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/20220309011347.png)

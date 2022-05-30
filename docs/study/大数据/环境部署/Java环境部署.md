@@ -19,7 +19,7 @@ tar -zxvf /usr/local/mng/jdk-8u181-linux-x64.tar.gz
 mv /usr/local/mng/jdk1.8.0_181 /usr/local/mng/java8
 ```
 
-![image-20211009222529636](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211009222529636.png)
+![image-20211009222529636](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211009222529636.png)
 
 ## 2. 配置环境变量
 
@@ -36,7 +36,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export JRE_HOME=$JAVA_HOME/jre
 ```
 
-![image-20211009223426873](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211009223426873.png)
+![image-20211009223426873](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211009223426873.png)
 
 让配置文件生效
 
@@ -50,5 +50,5 @@ source /etc/profile
 java -version
 ```
 
-![image-20211009223448347](https://gitee.com/minan-palace/md_images/raw/master/images/image-20211009223448347.png)
+![image-20211009223448347](https://raw.githubusercontent.com/minangong/mng_images/main/images/image-20211009223448347.png)
 

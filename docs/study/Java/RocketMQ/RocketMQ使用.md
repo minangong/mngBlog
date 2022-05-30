@@ -650,7 +650,7 @@ consumer.start();
 
 ###4.6.1 流程分析
 
-![](https://gitee.com/minan-palace/md_images/raw/master/images2/%E4%BA%8B%E5%8A%A1%E6%B6%88%E6%81%AF.png)
+![](https://raw.githubusercontent.com/minangong/mng_images/main/images2/%E4%BA%8B%E5%8A%A1%E6%B6%88%E6%81%AF.png)
 
 
 
