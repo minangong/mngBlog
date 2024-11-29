@@ -6,7 +6,7 @@ const preCache = [
   "/mngBlog/css/style.css",
   "/mngBlog/js/script.js",
 ];
-const VERSION = "1732864107635";
+const VERSION = "1732864718016";
 const cacheDomain = [
   "fonts.googleapis.com",
   "npm.webcache.cn",
